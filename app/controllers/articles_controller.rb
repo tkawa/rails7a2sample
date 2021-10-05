@@ -24,7 +24,10 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to @article, notice: "Article was successfully created."
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.append('articles', @article) }
+        format.html { redirect_to @article, notice: "Article was successfully created." }
+      end
     else
       render :new, status: :unprocessable_entity
     end
