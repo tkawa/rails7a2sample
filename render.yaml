@@ -1,0 +1,18 @@
+databases:
+  - name: rails7a2sample
+    databaseName: rails7a2sample
+    user: rails7a2sample
+
+services:
+  - type: web
+    name: rails7a2sample
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rails7a2sample
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
