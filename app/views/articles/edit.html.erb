@@ -2,7 +2,7 @@
 
 <turbo-frame id="<%= dom_id @article %>">
 <%= render "form", article: @article %>
-<%= link_to "Cancel", @article %>
+<%= link_to "Cancel", @article, "data-turbo-action": "restore" %>
 </turbo-frame>
 
 <br>
