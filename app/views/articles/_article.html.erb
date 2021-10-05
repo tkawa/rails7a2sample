@@ -9,7 +9,9 @@
     <%= article.body %>
   </p>
 
+  <%- unless current_page?(article) %>
   <p>
     <%= link_to "Show this article", article %>
   </p>
+  <%- end %>
 </div>

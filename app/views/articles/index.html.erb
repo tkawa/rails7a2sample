@@ -6,4 +6,6 @@
   <%= render @articles %>
 </div>
 
-<%= link_to "New article", new_article_path %>
+<turbo-frame id="new_article" src="<%= new_article_path %>" target="_top">
+  <%= link_to "New article", new_article_path %>
+</turbo-frame>
