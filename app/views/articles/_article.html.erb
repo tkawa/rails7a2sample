@@ -1,4 +1,4 @@
-<div id="<%= dom_id article %>" class="scaffold_record">
+<turbo-frame id="<%= dom_id article %>" class="scaffold_record">
   <p>
     <strong>Title:</strong>
     <%= article.title %>
@@ -9,9 +9,7 @@
     <%= article.body %>
   </p>
 
-  <%- unless current_page?(article) %>
   <p>
-    <%= link_to "Show this article", article %>
+    <%= link_to "Edit this article", edit_article_path(article) %>
   </p>
-  <%- end %>
-</div>
+</turbo-frame>
